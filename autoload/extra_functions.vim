@@ -30,5 +30,10 @@ function! extra_functions#delete_line(target_line) abort
     return 1
 endfunction
 
+function! extra_functions#bufname_without_dir() abort
+  let bufname_with_dir = bufname()
+  return bufname_with_dir[match(bufname_with_dir, '/.*$')+1:]
+endfunction
+
 let &cpo = s:save_cpo
 unlet s:save_cpo
